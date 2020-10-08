@@ -1,0 +1,41 @@
+<h1>{{title}}</h1>
+  
+  <div *ngIf="!photos.length">
+    Nenhuma imagem
+  </div>
+  
+  <ng-container *ngIf="photos.length">
+    <div class="fotos">
+      <ng-container *ngFor="let photo of photos; let i = index">
+        <img [src]="photo" [style.opacity]="i == actualPhoto ? 1 : 0" />
+      </ng-container>
+    </div>
+    <div class="quantity-photos">
+      <h3>Foto {{actualPhoto + 1}} de {{photos.length}}</h3>
+    </div>
+    <div class="buttons">
+      <button 
+        [disabled]="actualPhoto == 0"
+        (click)="firstPhoto()">
+        <img src="../../assets/arrow-left-first.svg" alt="">
+      </button>
+  
+      <button 
+        [disabled]="actualPhoto == 0"
+        (click)="backPhoto()">
+        <img src="../../assets/arrow-left.svg" alt="">
+      </button>
+      
+      <button 
+        [disabled]="lastPhotoVerify()"
+        (click)="nextPhoto()">
+        <img src="../../assets/arrow-right.svg" alt="">
+      </button>
+  
+      <button 
+        [disabled]="lastPhotoVerify()"
+        (click)="lastPhoto()">
+        <img src="../../assets/arrow-right-last.svg" alt="">
+      </button>
+    </div>
+  </ng-container>

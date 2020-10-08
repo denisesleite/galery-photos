@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  outline: 0;
+  margin: 0;
+  padding: 0;
+  font-family: 'Sansita Swashed', cursive;
+  width: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: url('../src/assets/background.jpg')
+}
